@@ -1,21 +1,14 @@
-var vidas=4;
-let secreto = Math.floor(Math.random() * 11);
+var carrito=[]
 
-while(vidas){
+while(confirm("Deseas agregar algun producto?")){
+    let producto= prompt("Que producto quieres agregar");
+    let precio= Number(prompt("Cual es el precio del producto?"));
 
-    alert("Tienes " + vidas + " vidas");
-    let numero=prompt('Prueba tu suerte y escribe un numero entre 0 y 10');
+    carrito.push([producto,precio]);
+    alert(`${producto} anadido correctamente`);
     
-    if(numero != secreto){
-        vidas--;
-        alert("INCORRECTO");
-    }else{
-        alert("ACERTASTE EL NUMERO ERA " + secreto);
-        break
-    }
-
 }
+let mensaje = ""
+carrito.forEach((elemento) => mensaje+= `nombre: ${elemento[0]} , precio: ${elemento[1]}\n`); 
 
-if(vidas==0){
-    alert("mala suerte el numero era " + secreto)
-}
+alert(mensaje)
