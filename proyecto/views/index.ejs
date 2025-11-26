@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Jugadores NBA</title>
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+<body>
+<div class="overlay">
+    <h1>Lista de jugadores NBA</h1>
+
+    <a href="/add">+ Agregar jugador</a>
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Estatura</th>
+            <th>Edad</th>
+            <th>Equipo</th>
+            <th>Acciones</th>
+        </tr>
+
+        <% jugadores.forEach(jugador => { %>
+        <tr>
+            <td><%= jugador.id %></td>
+            <td><%= jugador.nombre %></td>
+            <td><%= jugador.estatura %></td>
+            <td><%= jugador.edad %></td>
+            <td><%= jugador.equipo %></td>
+            <td>
+                <a href="/edit/<%= jugador.id %>">Editar</a>
+                |
+                <a href="/delete/<%= jugador.id %>" onclick="return confirm('¿Seguro?')">🗑 Eliminar</a>
+            </td>
+        </tr>
+        <% }) %>
+
+    </table>
+</div>
+</body>
+</html>
